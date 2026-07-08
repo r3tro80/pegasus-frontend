@@ -41,6 +41,8 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.verticalCenter
         anchors.bottomMargin: vpx(-45)
+
+        visible: (!Internal.meta.allowSettings) ? false : true;
     }
 
     Rectangle {
@@ -53,7 +55,7 @@ Rectangle {
         radius: vpx(10)
         color: "#181818"
 
-        anchors.top: logo.bottom
+        anchors.top: (!Internal.meta.allowSettings) ? parent.verticalCenter : logo.bottom;
         anchors.topMargin: height * 1.0
         anchors.horizontalCenter: parent.horizontalCenter
         clip: true
