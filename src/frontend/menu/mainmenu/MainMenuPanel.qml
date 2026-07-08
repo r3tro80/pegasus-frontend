@@ -63,6 +63,13 @@ FocusScope {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: vpx(30)
 
+        Rectangle {
+            width: parent.width
+            height: 200
+            color: "#333"
+            z: 1000
+        }
+
         PrimaryMenuItem {
             id: mbSettings
             text: qsTr("Settings") + api.tr
@@ -85,6 +92,9 @@ FocusScope {
                 root.showHelpScreen();
             }
             selected: focus
+
+            enabled: Internal.meta.allowSettings
+            visible: enabled
 
             KeyNavigation.down: mbQuickExit.callable ? mbQuickExit : scopeQuit
         }
