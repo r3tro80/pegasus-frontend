@@ -243,7 +243,7 @@ void ProcessLauncher::runProcess(const QString& command, const QStringList& args
     m_process->setInputChannelMode(QProcess::ForwardedInputChannel);
     m_process->setWorkingDirectory(workdir);
     m_process->start(command, args, QProcess::ReadOnly);
-    // m_process->waitForStarted(-1);
+    m_process->waitForStarted(-1);
 
 #else // Q_OS_ANDROID
     const QString result = android::run_am_call(args);
